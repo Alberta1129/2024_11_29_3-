@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <section>
+    <input id="userinput" type="text">
+    <button id="btn">送出</button>
+  </section>
+  <section id="textlist"></section>
+  <script>
+    // 1.有區塊可以輸入留言、送出留言
+    // 2.留言的文字會一個一個顯示在畫面上
+    // step01 先使用innerHTML方式新增到畫面上
+    let userinput = document.querySelector('#userinput');
+    let btn = document.querySelector('#btn');
+    let textlist = document.querySelector('#textlist');
+
+    textlist.innerHTML = '';
+
+    btn.addEventListener('click', () => {
+      // 可以優化程式碼
+      // if (userinput.value == '') {
+      //   return;
+      // }
+      if (userinput.value == '') return;
+      textlist.innerHTML += `<div>${userinput.value}</div>`;
+      // 取得到輸入文字
+      console.log(userinput.value);
+    });
+  </script>
+</body>
+
+</html>
