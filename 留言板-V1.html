@@ -30,8 +30,11 @@
       // }
       if (userinput.value == '') return;
       textlist.innerHTML += `<div>${userinput.value}</div>`;
-      // 取得到輸入文字
-      console.log(userinput.value);
+      textlist.innerHTML = '';//清空內容
+      textarray.forEach(element => {
+        textlist.innerHTML += `<div>${element}</div>`;
+        // console.log(element);
+      });
     });
   </script>
 </body>
