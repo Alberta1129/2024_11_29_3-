@@ -21,7 +21,28 @@
     let btn = document.querySelector('#btn');
     let textlist = document.querySelector('#textlist');
 
-    textlist.innerHTML = '';
+    // step02 會使用陣列來儲存資料
+    // let textarray = [];
+    // step04 要產生的內容會從資料庫先拿出來，如果沒有的話才會使用預設空的
+    // 1.判斷資料庫裏面有沒有資料 if 
+    // if (localStorage.getItem('textarray') != nul) {
+    //   textarray = localStorage.getItem('textarray');
+    // }
+
+    // 2.使用運算式的寫法
+    // 二元運算式
+    // 條件 ?? 不等於的結果
+    // 三元運算式
+    // 條件 ? 對的結果 : 錯的結果
+    // let textarray = localStorage.getItem('textarray') ?? [];
+    console.log(localStorage.getItem('textarray'));
+    console.log(localStorage.getItem('textarray').split(','));
+    let textarray = localStorage.getItem('textarray') ? localStorage.getItem('textarray').split(',') : [];
+    console.log(textarray);
+    textshow(); //資料的方式來產生
+    // console.log(localStorage.getItem('textarray'));
+
+    // textlist.innerHTML = '';
 
     btn.addEventListener('click', () => {
       // 可以優化程式碼
@@ -29,13 +50,28 @@
       //   return;
       // }
       if (userinput.value == '') return;
-      textlist.innerHTML += `<div>${userinput.value}</div>`;
+      textarray.push(userinput.value);
+      // step03 把資料存在暫存裡面(localStorage)
+      localStorage.setItem('textarray', textarray);
+
+      // localStorage.getItem('textarray') -> 拿出來的時候會變成字串要再把內容轉成我們需要的型態(type) 
+      // console.log(localStorage.getItem('textarray'));
+
+      // 會把顯示畫面的東西，替換成陣列裡面的內容來產生
+      // textlist.innerHTML += `<div>${userinput.value}</div>`;
+      textshow();
+
+      // 取得到輸入文字
+      console.log(userinput.value, textarray);
+    });
+
+    // 顯示畫面資料
+    function textshow() {
       textlist.innerHTML = '';//清空內容
       textarray.forEach(element => {
         textlist.innerHTML += `<div>${element}</div>`;
-        // console.log(element);
       });
-    });
+    }
   </script>
 </body>
 
