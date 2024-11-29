@@ -36,21 +36,7 @@
       // ※for
       console.log(textarray.length);
       0, 1, 2, 3, 4, 5, 6, 7
-      // 1.修改for迴圈的index內容
-      // for (let index = textarray.length - 1; index >= 0; index--) {
-      //   console.log(textarray[index], index);
-      // }
 
-      // 2.調整index - 1
-      // for (let index = textarray.length; index > 0; index--) {
-      //   console.log(textarray[index - 1], index);
-      //   textlist.innerHTML += `<div>${textarray[index-1]}</div>`;
-      // }
-
-      // ※陣列的方法來處理(reverse())
-      // 陣列.reverse()
-      // console.log(textarray);
-      // console.log(textarray.reverse());
       textarray.reverse().forEach(element => {
         textlist.innerHTML += `<div>${element}</div>`;
       });
